@@ -14,9 +14,5 @@ public:
           v[i]--;
           j++;}
        }
-        cout<<"[";
-        for(int x:nums)
-            cout<<x<<",";
-        cout<<"]";
     }
 };
