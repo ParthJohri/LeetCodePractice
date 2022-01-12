@@ -8,25 +8,32 @@ using namespace std;
 class Solution
 {
     public:
+    void swap(int a[],int start, int end)
+    {
+        int temp;
+        temp=a[start];
+        a[start]=a[end];
+        a[end]=temp;
+    }
     void sort012(int a[], int n)
     {
-        int countzero=0,countone=0,counttwo=0,x=0;
-     for(int i=0;i<n;i++)
-     {
-         if(a[i]==0)
-         countzero++;
-         else if(a[i]==1)
-         countone++;
-         else if(a[i]==2)
-         counttwo++;
-     }
-     while(countzero--)
-     a[x++]=0;
-     while(countone--)
-     a[x++]=1;
-     while(counttwo--)
-     a[x++]=2;
-        
+        int low=0,mid=0,high=n-1;
+        while(mid<=high)
+        {
+            if(a[mid]==0)
+            {
+                swap(a,low,mid);
+                low++;
+                mid++;
+            }
+            else if(a[mid]==1)
+            mid++;
+            else 
+            {
+                swap(a,mid,high);
+                high--;
+            }
+        }
     }
     
 };
