@@ -16,17 +16,7 @@ class Solution{
     int kthSmallest(int arr[], int l, int r, int k) {
         //code here
         sort(arr,arr+(r-l+1));
-        while(l<=r)
-        {
-            int mid=(l+r)/2;
-            if(arr[mid]==arr[k-1])
-                return arr[k-1];
-                else if(arr[k-1]>arr[mid])
-                l=mid+1;
-                else
-            r=mid-1;
-        }
-        return -1;
+        return arr[k-1];
     }
 };
 
