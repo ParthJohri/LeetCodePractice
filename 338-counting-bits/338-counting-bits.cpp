@@ -13,7 +13,7 @@ public:
         int count=0;
         while(k<=31)
         {
-            if(((1<<k)&n)>0)
+            if((1&(n>>k))>0)
             ++count;
             k++;
         }
