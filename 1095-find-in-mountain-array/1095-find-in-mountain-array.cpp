@@ -30,7 +30,6 @@ public:
                 start=mid+1;
         }
         peak=start;
-        cout<<peak<<"\n";
         
         //first half
         start=0;
