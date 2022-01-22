@@ -10,7 +10,7 @@ public:
                 ++count;
                 continue;
             }
-            num=num/2;
+            num=num>>1;
             ++count;
         }
         return count;
