@@ -18,7 +18,7 @@ class Solution
             if(i>='A'&&i<='Z')
             s+=i;
             else if(i>='0'&&i<='9')
-            sum+=stoi(to_string(i-'0'));
+            sum+=i-'0';
         }
         sort(s.begin(),s.end());
         s+=to_string(sum);
