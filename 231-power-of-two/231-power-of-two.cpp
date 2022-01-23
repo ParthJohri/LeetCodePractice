@@ -5,6 +5,6 @@ public:
             return false;
         else if(n==1)
             return true;
-        return !(n&(n-1));
+        return (n&(n-1))==0;
     }
 };
