@@ -5,10 +5,7 @@ public:
         int count=0;
         for(int i=0;i<piles.size();i++)
         {
-           if(piles[i]%k==0)
-               count+=piles[i]/k;
-            else
-                count+=piles[i]/k+1;
+            count+=piles[i]%k==0?piles[i]/k:piles[i]/k+1;
         }
         return count;
     }
@@ -24,6 +21,6 @@ public:
             else
                 start=mid+1;
         }
-    return end+1;
+    return start;
     }
 };
