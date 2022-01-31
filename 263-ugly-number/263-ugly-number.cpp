@@ -3,20 +3,8 @@ public:
     bool isUgly(int n) {
         if(n<=0)
             return false;
-        if(n==1)
-            return true;
-        int x=2;
-        while(x<n)
-        {
-            if(n%x==0)
-            {n/=x;}
-            else
-            {
-                x++;
-            }
-            if(x>5)
-                return false;
-        }
-        return true;
+        int num[]={2,3,5};
+        for(auto i: num){while(n%i==0&&n) n/=i;}
+        return n==1;
     }
 };
