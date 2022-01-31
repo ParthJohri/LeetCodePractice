@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool judgeCircle(string moves) {
-
         int sx=0,sy=0;
         for(auto i: moves)
         {
