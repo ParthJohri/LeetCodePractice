@@ -24,7 +24,6 @@ public:
             if(st[i]<st[i+1])
                 ++count;
         }
-        cout<<count<<endl;
         return count==st.size()-1;
     }
 };
