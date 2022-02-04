@@ -13,7 +13,7 @@ public:
 
 	string temp="";
 
-	while(getline(str,temp,' '))
+	while(str>>temp) // while(getline(str,temp,' '))
 	{
 		v[temp[temp.length()-1]]=temp.substr(0,temp.length()-1);
 	}
