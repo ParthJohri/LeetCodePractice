@@ -7,7 +7,7 @@ public:
 	// Now this object can read the string
 	// as if it were a stream
 
-	vector<string> v(1000);
+	vector<string> v(201);
 	// vector to store the words of the string 
 	// or the token of the string
 
