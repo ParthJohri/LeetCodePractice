@@ -17,7 +17,6 @@ public:
             {int t=stoi(temp);
              st.push_back(t);}
         }
-        cout<<st.size()<<endl;
         int count=0;
         for(int i=0;i<st.size()-1;i++)
         {
