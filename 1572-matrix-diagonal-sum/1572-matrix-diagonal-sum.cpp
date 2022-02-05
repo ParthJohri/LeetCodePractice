@@ -12,7 +12,6 @@ public:
                 sum+=mat[i][j];
             }
         }
-        // sum-=mat[mat.size()/2][mat[0].size()/2];
         return sum;
     }
 };
