@@ -7,9 +7,50 @@
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
- */
+ 
+INPUT:- 
+[7,2,4,3]
+[5,6,4]
+
+[2,4,3]
+[5,6,4]
+
+[2,3]
+[3,4,5]
+
+[0]
+[0]
+
+[5]
+[5]
+
+[1]
+[9,9]
+
+[9,1,6]
+[0]
+
+OUTPUT:-
+
+[7,8,0,7]
+
+[8,0,7]
+
+[3,6,8]
+
+[0]
+
+[1,0]
+
+[1,0,0]
+
+[9,1,6]
+
+*/
+
 class Solution {
 public:
+    // Counting Number of Nodes in a LinkedList
     int countNodes(ListNode* head)
     {
         int count=0;
@@ -20,6 +61,7 @@ public:
         }
         return count;
     }
+    // Reversing a Linked List
     ListNode* rev(ListNode* head)
     {
         ListNode *curr,*prev;
@@ -36,6 +78,7 @@ public:
         }
         return prev;
     }
+    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         
         int n1,n2,s=0,carry=0;
@@ -62,8 +105,6 @@ public:
         
         curr2=curr2->next;
         
-        cout<<curr->val<<" ";
-
         while(curr1!=NULL&&curr2!=NULL)
         {
             s=(curr1->val+curr2->val+carry)%10;
@@ -109,7 +150,7 @@ public:
         
         while(curr2!=NULL)
                 
-        { s=(curr2->val+carry)%10;
+        {s=(curr2->val+carry)%10;
             
         carry=(curr2->val+carry)/10;
         
@@ -122,7 +163,9 @@ public:
          curr2=curr2->next;
          
         curr=curr->next;
+        
         }
+            
         }
             
         if(carry!=0)
