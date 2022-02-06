@@ -17,7 +17,6 @@ public:
         }
         for(auto i:v)
         {
-            cout<<"first "<<i.first<<" second "<<i.second<<" ";
             bool flag1,flag2,flag3; 
             flag1=flag2=flag3=false;
             for(auto j: i.second)
