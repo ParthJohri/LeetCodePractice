@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // whenever we pass a compare function 
+    // in sort then it should be declared as static
     static bool comp(const pair<int,int> &l,const pair<int,int> &r)
     {
         if(l.second!=r.second)
@@ -32,23 +34,29 @@ public:
                 start=-1;
             power.push_back(start+1);
         }
-        unordered_map<int,int> m;
+
+        // creating a vector of pairs 
+        // to store values in key value pairs
+        
+        vector<pair<int,int> > v;
+        
         for(int i=0;i<power.size();i++)
         {
-            m[i]=power[i];
+            v.push_back(make_pair(i,power[i]));
         }
-        vector<pair<int,int> > v;
-        for(auto i=m.begin();i!=m.end();i++)
-        {
-            v.push_back(make_pair(i->first,i->second));
-        }
+        // sorting the vector of pairs 
+        // according to the second value 
+        // if they are equal then by their first value
         
         sort(v.begin(),v.end(),comp);
+        
         vector<int> ans;
+        
         for(int i=0;i<k;i++)
         {
             ans.push_back(v[i].first);
         }
+        
         return ans;
     }
 };
