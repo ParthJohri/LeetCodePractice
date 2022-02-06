@@ -3,7 +3,12 @@ public:
     int heightChecker(vector<int>& heights) {
         int start=0,end=heights.size()-1,count=0;
         vector<int> expected;
-        // sort(expected.begin(),expected.end()); nlog(n) 
+        
+        // STL sort uses nlog(n) time complexity
+        
+        // Therefore I will use count sort to reduce the time complexity
+        // to O(n)
+        
         int arr[101]={0};
         for(auto i: heights)
         {
