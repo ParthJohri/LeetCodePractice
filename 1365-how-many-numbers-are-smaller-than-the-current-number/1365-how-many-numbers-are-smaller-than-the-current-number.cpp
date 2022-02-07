@@ -15,7 +15,7 @@ public:
         for(int i=0;i<101;i++)
         {
             if(m[i]!=0)
-            ans[i]=sum;;
+            ans[i]=sum;
             sum+=m[i];
         }
        
