@@ -62,6 +62,7 @@ public:
             curr1=curr1->next;
             curr2=curr2->next;
         }
+        // When the first number is bigger than second number
         if(n1>n2)
         {
             while(curr1!=NULL)
@@ -75,6 +76,7 @@ public:
             }
             
         }
+        // When the second number is bigger than first number
         else
         {
             while(curr2!=NULL)
@@ -87,6 +89,7 @@ public:
                 curr2=curr2->next;
             }
         }
+        // If there is any carry value remaining
         if(carry!=0)
         {
             ListNode* temp=new ListNode(carry);
