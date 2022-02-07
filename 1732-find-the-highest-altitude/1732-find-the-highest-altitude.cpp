@@ -1,15 +1,12 @@
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
-        int prefsum=0,mx=INT_MIN;
-        vector<int> p={0};
+        int prefsum=0,mx=0;
         for(auto i: gain)
         {
             prefsum+=i;
-            p.push_back(prefsum);
+            mx=max(prefsum,mx);
         }
-        for(auto i:p)
-            mx=max(i,mx);
         return mx;
     }
 };
