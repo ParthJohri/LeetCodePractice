@@ -22,7 +22,6 @@ public:
             m3=INT_MAX;
         else
             m3=(double)(y2-y)/(x2-x);
-        cout<<m1<<" "<<m2<<" "<<m3<<endl;
         return m1!=m2&&m3!=m1&&m2!=m3;
 
     }
