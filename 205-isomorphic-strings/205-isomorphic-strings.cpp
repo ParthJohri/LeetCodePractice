@@ -55,3 +55,10 @@ public:
 // "baba"
 // "bbbaaaba"
 // "aaabbbba"
+// Output
+// true
+// false
+// true
+// false
+// false
+// false
