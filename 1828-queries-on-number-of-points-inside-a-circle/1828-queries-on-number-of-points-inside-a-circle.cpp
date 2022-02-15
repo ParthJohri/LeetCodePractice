@@ -13,7 +13,7 @@ public:
         {
             int x=i[0];
             int y=i[1];
-            double d=sqrt(pow((x-cx),2)+pow((y-cy),2));
+            double d=sqrt((x-cx)*(x-cx)+(y-cy)*(y-cy));
             if(d<=r)
                 ++count;
         }
