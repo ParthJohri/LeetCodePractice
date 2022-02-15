@@ -2,14 +2,14 @@ class Solution {
 public:
     int countKDifference(vector<int>& nums, int k) {
         int count=0;
-        for(auto i:nums)
+        for(int i=0;i<nums.size()-1;i++)
         {
-            for(auto j:nums)
+            for(int j=i+1;j<nums.size();j++)
             {
-                if(abs(i-j)==k)
+                if(abs(nums[i]-nums[j])==k)
                     ++count;
             }
         }
-        return count/2;
+        return count;
     }
 };
