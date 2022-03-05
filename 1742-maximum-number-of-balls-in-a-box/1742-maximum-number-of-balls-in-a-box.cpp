@@ -11,7 +11,7 @@ public:
         return sum;
     }
     int countBalls(int lowLimit, int highLimit) {
-        vector<int>s(1e5,0);
+        vector<int>s(46,0);
         int lar=INT_MIN;
         for(int i=lowLimit;i<=highLimit;i++)
         {
