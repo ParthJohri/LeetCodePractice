@@ -16,17 +16,17 @@ public:
                     case '}':if(s.top()=='{')
                                 s.pop();
                               else
-                              b=false;
+                              return false;
                                 break;
                     case ')': if(s.top()=='(')
                                 s.pop();
-                        else
-                              b=false;
+                              else
+                              return false;
                                 break;
                     case ']': if(s.top()=='[')
                                 s.pop();
-                        else
-                                  b=false;
+                              else
+                                 return false;
                                 break;
                 }
             }
