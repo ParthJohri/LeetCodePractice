@@ -17,8 +17,7 @@ public:
         {
             rangeSumBST(root->left,low,high); 
             if(((root->val)>=low)&&((root->val)<=high))
-            {cout<<root->val<<"\t";
-             sum+=root->val;}
+            sum+=root->val;
             rangeSumBST(root->right,low,high); 
         }
         return sum;
