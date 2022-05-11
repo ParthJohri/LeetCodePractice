@@ -16,7 +16,7 @@ public:
         if(root!=NULL)
         {
             rangeSumBST(root->left,low,high); 
-            if(((root->val)>=low)&&((root->val)<=high))
+            if(root->val>=low&&root->val<=high)
             sum+=root->val;
             rangeSumBST(root->right,low,high); 
         }
