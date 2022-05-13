@@ -26,7 +26,7 @@ public:
                 s.push(sum);
             }
         }
-        while(!s.empty())
+        while(!s.empty()) // Do not use for loop!
         {
             ans+=stoi(s.top());
             s.pop();
