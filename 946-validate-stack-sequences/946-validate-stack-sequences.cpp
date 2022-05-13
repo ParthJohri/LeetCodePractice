@@ -9,10 +9,12 @@ public:
         {
            if(!s.empty())
            { while(s.top()==popped[x])
-               {s.pop();
+              {
+               s.pop();
                x++;
                if(s.empty())
-                break;}
+            break;
+                }
            }
             if(i!=popped[x])
                 s.push(i);
@@ -21,13 +23,11 @@ public:
                 x++;
             }
         }
-        cout<<s.size()<<endl;
         while(x<popped.size())
         {
             if(s.top()==popped[x++])
                 s.pop();
         }
-        cout<<s.size()<<endl;
         return s.empty();
     }
 };
