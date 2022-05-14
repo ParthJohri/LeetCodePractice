@@ -6,9 +6,17 @@ public:
         for(auto i:st)
         {
             if(i=='(')
-                {s.push('(');++count;if(count>=mx)mx=count;}
+                {
+                    s.push('(');
+                        ++count;
+                    if(count>=mx)
+                         mx=count;
+                }
             else if(i==')')
-                {s.pop();count--;}
+                {
+                    s.pop();
+                    count--;
+                }
         }
         return mx;
     }
