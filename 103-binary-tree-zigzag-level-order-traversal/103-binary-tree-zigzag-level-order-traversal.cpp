@@ -19,21 +19,20 @@ public:
         bool flag=true; // flag==true L->R
         while(!q.empty())
         {
-            vector<int> level;
             int size=q.size();
+            vector<int> level(size);
             for(int i=0;i<size;i++)
             {
                 TreeNode* curr=q.front();
                 q.pop();
+                int index=flag?i:size-1-i;
+                level[index]=curr->val;
                 if(curr->left!=NULL)
                     q.push(curr->left);
                 if(curr->right!=NULL)
                     q.push(curr->right);
-                level.push_back(curr->val);
             }
-            if(!flag)// flag==false R->L
-                reverse(level.begin(),level.end());
-            flag=!flag;
+            flag=!flag; // flag==false R->L
             ans.push_back(level);
         }
         return ans;
