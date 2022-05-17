@@ -18,7 +18,7 @@ public:
         q.push(root);
         while(!q.empty())
         {
-            int size=q.size();
+            int size=q.size();//Always make a variable for this and don't use q.size() directly otherwise it will give an error
             vector<int> level;
             for(int i=0;i<size;i++)
             {
