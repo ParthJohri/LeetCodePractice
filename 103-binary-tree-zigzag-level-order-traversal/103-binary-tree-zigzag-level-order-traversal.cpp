@@ -16,7 +16,7 @@ public:
         vector<vector<int>> ans;
         if(root==NULL) return ans;
         q.push(root);
-        int count=0;
+        bool flag=true; // flag==true L->R
         while(!q.empty())
         {
             vector<int> level;
@@ -31,9 +31,9 @@ public:
                     q.push(curr->right);
                 level.push_back(curr->val);
             }
-            if(count%2!=0)
+            if(!flag)// flag==false R->L
                 reverse(level.begin(),level.end());
-            ++count;
+            flag=!flag;
             ans.push_back(level);
         }
         return ans;
