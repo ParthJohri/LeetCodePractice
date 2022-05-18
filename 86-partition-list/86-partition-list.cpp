@@ -26,8 +26,8 @@ public:
                 v.push_back(ncurr->val);
             ncurr=ncurr->next;
         }
-        ListNode* ans=head;
         int y=0;
+        ListNode* ans=head;
         while(ans!=NULL)
         {
             ans->val=v[y++];
