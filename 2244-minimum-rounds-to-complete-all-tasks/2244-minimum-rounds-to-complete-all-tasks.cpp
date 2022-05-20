@@ -7,11 +7,16 @@ public:
         int count=0;
         for(auto i:v)
         {
-            double c=i.second;
+            int c=i.second;
             if(c==1)
                 return -1;
             else
-                count+=ceil(c/3);
+                {
+                if(c%3==0)
+                    count+=c/3;
+                else
+                    count+=c/3+1;
+               }
         }
         return count;
     }
