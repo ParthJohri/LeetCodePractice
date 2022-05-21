@@ -7,10 +7,12 @@ public:
           { 
             for(char i=sn;i<=en;i++)
             {
-                string temp="";
-                temp+=c;
-                temp+=i;
-                ans.push_back(temp);
+                // string temp="";
+                // temp+=c;
+                // temp+=i;
+                // Instead use this {} an array of charcters is a string so 
+                // ans.push_back({c,i});
+                ans.push_back({c,i});
             }
            }
         return ans;
