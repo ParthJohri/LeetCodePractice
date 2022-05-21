@@ -1,6 +1,8 @@
 class Solution {
 public:
     string findDifferentBinaryString(vector<string>& nums) {
+        // Must Read Discuss Section
+        // Cantor's Diagonization
         map<int,int> m;
         int val=nums[0].length();
         int mx=(int)pow(2,val);
