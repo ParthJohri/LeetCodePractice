@@ -12,7 +12,7 @@ public:
                num1="0"+num1;
            }
        }
-       if(v-n2>0)
+       else 
         {
             int c2=v-n2;
            while(c2--)
@@ -20,7 +20,6 @@ public:
                num2="0"+num2;
            }
         }
-        cout<<num1<<" "<<num2<<endl;
         string s;
         int sum=0,car=0;
         for(int i=v-1;i>=0;i--)
