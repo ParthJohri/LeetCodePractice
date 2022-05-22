@@ -10,23 +10,26 @@
  */
 class Solution {
 public:
-    
     ListNode* removeElements(ListNode* head, int val) {
-        ListNode* curr=head;
         if(head==NULL) return NULL;
-        if(head->next==NULL&&head->val==val) return NULL;
-        while(curr->next!=NULL)
+        ListNode* curr=head;
+        vector<int> v;
+        while(curr!=NULL)
         {
-            if(curr->next->val==val)
-            {
-                auto temp=curr->next;
-                curr->next=curr->next->next;
-                delete(temp);
-                continue;
-            }
+            if(curr->val!=val)
+                v.push_back(curr->val);
             curr=curr->next;
         }
-        if(head->val==val) head=head->next;
-        return head;
+        if(v.size()==0)
+            return NULL;
+        ListNode* temp=new ListNode(v[0]);
+        ListNode* cur=temp;
+        for(int i=1;i<v.size();i++)
+        {
+            ListNode* t=new ListNode(v[i]);
+            cur->next=t;
+            cur=cur->next;
+        }
+        return temp;
     }
 };
