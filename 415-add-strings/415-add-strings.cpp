@@ -14,7 +14,7 @@ public:
        }
        else 
         {
-            int c2=v-n2;
+           int c2=v-n2;
            while(c2--)
            {
                num2="0"+num2;
