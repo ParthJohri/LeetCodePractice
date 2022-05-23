@@ -14,7 +14,6 @@ public:
         int ans=0;
         for(int i=0;i<a.size()/2;i++)
         {
-            cout<<a[i];
             ans+=abs(a[i]-v);
         }
         return ans;
