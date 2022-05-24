@@ -12,6 +12,9 @@
 class Solution {
 public:
     vector<vector<int>> verticalTraversal(TreeNode* root) {
+        // Time Complexity : O(NlogN) if map takes O(1) time
+        // Space Complexity: O(N)
+        // https://www.youtube.com/watch?v=q_a6lpbKJdw&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=24&ab_channel=takeUforward
         map<int,map<int,multiset<int>>> m;
         queue<pair<TreeNode*,pair<int,int>>> q;
         q.push({root,{0,0}});
