@@ -23,15 +23,9 @@ public:
         return ;
     }
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        vector<int> v;
+        vector<int> v,v2;
         inorder(root1,v);
-        vector<int> v2;
         inorder(root2,v2);
-        cout<<v.size()<<" "<<v2.size();
-        for(int i=0;i<v2.size();i++)
-            {
-                cout<<v2[i];
-            }
         if(v.size()==v2.size())
         {
             for(int i=0;i<v.size();i++)
