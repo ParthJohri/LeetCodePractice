@@ -26,16 +26,6 @@ public:
         vector<int> v,v2;
         inorder(root1,v);
         inorder(root2,v2);
-        if(v.size()==v2.size())
-        {
-            for(int i=0;i<v.size();i++)
-            {
-                if(v[i]!=v2[i])
-                    return false;
-            }
-        }
-        else
-            return false;
-        return true;
+        return v==v2;
     }
 };
