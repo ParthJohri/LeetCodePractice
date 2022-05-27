@@ -12,8 +12,7 @@ public:
            else if (maxDoubles==0)
              {  
                count+=target-x;
-               target-=count;
-               continue;
+               return count;
              }
            else
                target--;
