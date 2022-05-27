@@ -20,16 +20,20 @@ public:
             else if(b)
             {
                 if(s[i]=='1' &&ad[i]=='0')
-                    {s[i]='0';
-                    b=true;}
+                    {
+                        s[i]='0';
+                        b=true;
+                    }
                 else if(s[i]=='1'&&ad[i]=='1')
-                {
-                    s[i]='1';
-                    b=true;
-                }
+                    {
+                        s[i]='1';
+                        b=true;
+                    }
                 else
-                    {s[i]='1';
-                    b=false;}
+                    {
+                        s[i]='1';
+                        b=false;
+                    }
             }
             else if(s[i]=='0'&&ad[i]=='0')
                 s[i]='0';
@@ -49,7 +53,6 @@ public:
             }
             else if(s[s.length()-1]=='0')
                 s=s.substr(0,s.length()-1);
-            cout<<s<<endl;
             count++;
         }
         return count;
