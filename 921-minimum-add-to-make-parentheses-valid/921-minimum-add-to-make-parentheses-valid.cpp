@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minAddToMakeValid(string s) {
+        // Time Complexity : O(N)
+        // Space Complexity: O(N)
         int not_closed=0,not_opened=0;
         for(auto i:s)
         {
