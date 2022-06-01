@@ -13,7 +13,7 @@ public:
             ans.push_back(s.substr(i,10));
         }
         
-        map<string,int> m;
+        unordered_map<string,int> m;
         for(auto i:ans)
         {
             m[i]++;
