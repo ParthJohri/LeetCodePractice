@@ -13,11 +13,11 @@ public:
             m[s.substr(i,10)]++;
         }
         
-            for(auto i: m)
-                {
-                    if(i.second>1)
-                        v.push_back(i.first);
-                }
+        for(auto i: m)
+            {
+                if(i.second>1)
+                    v.push_back(i.first);
+            }
         
         return v;
     }
