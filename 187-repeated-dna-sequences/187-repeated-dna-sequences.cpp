@@ -20,21 +20,11 @@ public:
         }
         
         vector<string> v;
-        if(m.size()==1)
-            {
-                for(auto i: m)
-                    {
-                            v.push_back(i.first);
-                    }
-            }
-        else
-        {
             for(auto i: m)
                 {
                     if(i.second>1)
                         v.push_back(i.first);
                 }
-        }
         return v;
     }
 };
