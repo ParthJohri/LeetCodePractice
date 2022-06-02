@@ -14,7 +14,7 @@ public:
         if(head==NULL) return nullptr;
         ListNode* curr=head;
         ListNode* ans=head;
-        int s=0,x=0;
+        int s=0;
         curr=curr->next;
         while(curr!=NULL)
         {
