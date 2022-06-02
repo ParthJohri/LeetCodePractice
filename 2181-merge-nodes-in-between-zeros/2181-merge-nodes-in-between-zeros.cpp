@@ -13,32 +13,25 @@ public:
     ListNode* mergeNodes(ListNode* head) {
         if(head==NULL) return nullptr;
         ListNode* curr=head;
-        ListNode* ans=new ListNode();
-        ListNode* t=ans;
-        int s=0;
-        bool b=false;
+        ListNode* ans=head;
+        int s=0,x=0;
+        curr=curr->next;
         while(curr!=NULL)
         {
-            if(curr->val==0 && b)
+            if(curr->val!=0)
             {
-                cout<<s;
-                ListNode* temp=new ListNode(s);
-                    if(ans->val==0)
-                        ans->val=s;
-                    else
-                        {
-                            t->next=temp; 
-                            t=t->next;
-                        }
-                s=0;
+                s+=curr->val;
             }
             else
             {
-                b=true;
-                s+=curr->val;
+                if(curr->next==NULL)
+                    ans->next=NULL;
+                ans->val=s;
+                ans=ans->next;
+                s=0;
             }
             curr=curr->next;
         }
-        return ans;
+        return head;
     }
 };
