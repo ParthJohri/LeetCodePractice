@@ -1,25 +1,20 @@
 class Solution {
 public:
     int minimumRounds(vector<int>& tasks) {
-        map<int,int> v;
-        for(auto i:tasks)
-            v[i]++;
+        unordered_map<int,int> m;
         int count=0;
-        for(auto i:v)
+        for(auto i:tasks)
+            m[i]++;
+        for(auto i:m)
         {
-// Make sure you use double data type here
-            double c=i.second;
-            if(c==1)
+            if(i.second<2)
                 return -1;
-            else
-                count+=ceil(c/3);
-//                 Better to use ceil function
-//                 {
-//                 if(c%3==0)
-//                     count+=c/3;
-//                 else
-//                     count+=c/3+1;
-//                }
+            else if(i.second==2)
+                count++;
+            else if(i.second==3)
+                 count++;
+            else if(i.second>3)
+                count+=ceil((double)i.second/3);
         }
         return count;
     }
