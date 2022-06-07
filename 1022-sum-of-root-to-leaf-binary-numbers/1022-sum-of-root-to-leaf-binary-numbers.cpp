@@ -44,8 +44,7 @@ public:
         trav(root, s);
         int sum=0;
         for(auto i:v)
-            {sum+=val(i,i.length());
-             cout<<i<<" ";}
+            sum+=val(i,i.length());
         return sum;
     }
 };
