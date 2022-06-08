@@ -11,6 +11,6 @@ public:
             p.pop();
             p.push(abs(t-s));
         }
-            return p.top();
+        return p.top();
     }
 };
