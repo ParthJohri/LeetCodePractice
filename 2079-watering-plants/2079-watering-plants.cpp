@@ -14,7 +14,6 @@ public:
                 count+=2*(i+1);
                 capacity=cap;
             }
-            cout<<count<<"\t";
         }
         return count+1;
     }
