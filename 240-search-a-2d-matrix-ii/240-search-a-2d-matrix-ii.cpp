@@ -4,7 +4,6 @@ public:
         int col=matrix[0].size()-1,row=0;
         while(row<matrix.size() && col>=0)
         {
-            
             if(target==matrix[row][col]) 
                 return true;
             else if(target<matrix[row][col])
