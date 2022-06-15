@@ -15,23 +15,15 @@ public:
                 if(capacityA<plants[a])
                 {
                     capacityA=capA;
-                    capacityA-=plants[a];
                     count++;
-                }
-                else
-                {
-                    capacityA-=plants[a];
                 }
                 if(capacityB<plants[b])
                 {
                     capacityB=capB;
-                    capacityB-=plants[b];
                     count++;
                 }
-                else
-                {
-                    capacityB-=plants[b];
-                }
+                capacityA-=plants[a];
+                capacityB-=plants[b];
             }
             a++;
             b--;
