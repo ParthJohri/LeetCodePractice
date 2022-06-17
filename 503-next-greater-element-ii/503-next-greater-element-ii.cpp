@@ -11,7 +11,6 @@ public:
         int x=t-1;
         for(int i=nums.size()-1;i>=0;i--)
         {
-            cout<<nums[i]<<" ";
             x--;
             while(!s.empty())
             {
