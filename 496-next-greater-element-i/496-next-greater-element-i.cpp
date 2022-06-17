@@ -12,15 +12,15 @@ public:
         {
             while(!s.empty())
             {
-                if(nums2[s.top()]>nums2[i])
+                if(s.top()>nums2[i])
                 {    
-                    nb[nums2[i]]=nums2[s.top()]; 
+                    nb[nums2[i]]=s.top(); 
                     break;
                 }
                 else
                     s.pop();
             }
-            s.push(i);
+            s.push(nums2[i]);
         }
         for(int i=0;i<nums1.size();i++)
         {
