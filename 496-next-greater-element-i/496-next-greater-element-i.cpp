@@ -2,8 +2,9 @@ class Solution {
 public:
     const int num=1000001;
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        // Similar to Daily temperature
         // 1. nums2 daily temp;
-        // 2. num1 element search in nums2
+        // 2. num1 element search in nums2 for which we used a number bank array for fast acccess of elements
         vector<int> nb(num,-1);
         vector<int> ans(nums1.size(),0);
         stack<int> s;
