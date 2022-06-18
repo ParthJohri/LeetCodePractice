@@ -2,7 +2,6 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         int i=0,j=height.size()-1,mx=INT_MIN,mn=INT_MAX,width=0,area=0;
-        // Read the Discuss Section
         while(i<j)
         {
             mn=min(height[i],height[j]);
