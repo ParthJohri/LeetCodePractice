@@ -5,7 +5,6 @@ public:
         int arr[129]={0};
         for(auto i:s)
         {
-            cout<<(int)i<<" ";
             if(arr[(int)i]==0)
             arr[(int)i]++;
         }       
