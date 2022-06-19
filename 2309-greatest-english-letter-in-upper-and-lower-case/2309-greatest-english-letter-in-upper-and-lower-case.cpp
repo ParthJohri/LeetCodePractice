@@ -9,7 +9,6 @@ public:
                 if(i==c) {ans+=c; break;}
             }       
         }
-        cout<<ans;
         for(int i=ans.size()-1;i>=0;i--)
         {
             for(auto j:s)
