@@ -1,22 +1,19 @@
 class Solution {
 public:
     string greatestLetter(string s) {
-        string ans="",finalans="";
-        for(char c='A';c<='Z';c++)
+        string ans="";
+        int arr[129]={0};
+        for(auto i:s)
         {
-            for(auto i:s)
-            {
-                if(i==c) {ans+=c; break;}
-            }       
-        }
-        for(int i=ans.size()-1;i>=0;i--)
+            cout<<(int)i<<" ";
+            if(arr[(int)i]==0)
+            arr[(int)i]++;
+        }       
+        for(int i=90;i>=65;i--)
         {
-            for(auto j:s)
-            {
-                if(tolower(ans[i])==j)
-                return finalans+=ans[i];
-            }
+           if(arr[i]==1&&arr[i+32]==1)
+               return ans+=(char)i;
         }
-        return finalans;
+        return ans;
     }
 };
