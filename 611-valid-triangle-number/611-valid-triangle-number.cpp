@@ -12,7 +12,6 @@ public:
             else if(nums[i]>=nums[j]+nums[k]) k++;
             else j--;
             }
-        // 2,3,4,6,7,7,9,38,277
         }
         return count;
     }
