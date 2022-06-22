@@ -13,7 +13,6 @@ public:
             {
                 v[x]+=s[i];
                 x++;
-                cout<<x<<" ";
                 continue;
             }
             else if(x==numRows && b==true)
@@ -24,12 +23,11 @@ public:
             }
             else if(x>0)
             {
-                cout<<x<<"\t";
                 v[x--]+=s[i];
             }
         }
         for(auto i:v)
-            {cout<<i<<"\t";ans+=i;}
+            ans+=i;
         return ans;
     }
 };
