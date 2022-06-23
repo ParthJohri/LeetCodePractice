@@ -1,6 +1,9 @@
 class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) {
+        // 2nd Solution TC:O(1) SC:O(1) 
+        // Read THe Description Carefully
+        // A center node is a node taht connects with every other node.
         if(edges[0][0]==edges[1][0]||edges[0][0]==edges[1][1])
             return edges[0][0];
         else
