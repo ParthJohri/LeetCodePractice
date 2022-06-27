@@ -11,13 +11,13 @@ public:
     }
     int tribonacci(int n) {
         vector<int> dp(n+5,0);
-        return fib(dp,n);
+        return fib(dp,n); // Recusive DP With Memoization
         dp[0]=0;
         dp[1]=1;
         dp[2]=1;
         dp[3]=2;
         dp[4]=4;
-        for(int i=5;i<=n;i++)
+        for(int i=5;i<=n;i++) // Iterative DP With Memoization
             dp[i]=dp[i-1]+dp[i-2]+dp[i-3];
         return dp[n];
     }
