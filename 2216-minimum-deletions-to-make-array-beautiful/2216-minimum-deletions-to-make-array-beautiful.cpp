@@ -5,7 +5,6 @@ public:
         if(n==0) return 0;
         if(n==1) return 1;
         int count=0;
-        cout<<n;
         for(int i=0;i<n-1;i++)
         {
             if((i-count)%2==0 && nums[i+1]==nums[i]) ++count;
