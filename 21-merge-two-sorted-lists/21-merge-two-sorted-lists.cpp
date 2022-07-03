@@ -19,37 +19,25 @@ public:
         ptr=head;
         while(curr1!=NULL&&curr2!=NULL)
         {
-            int v1=curr1->val;
-            int v2=curr2->val;
-            ListNode* tmp=new ListNode(0);
-            if(v1<=v2)
+            if(curr1->val<=curr2->val)
             {
-                tmp->val=v1;
+                ptr->next=curr1;
                 curr1=curr1->next;
             }
             else
             {
-                tmp->val=v2;
+                ptr->next=curr2;
                 curr2=curr2->next;
             }
-            ptr->next=tmp;
             ptr=ptr->next;
         }
-        while(curr1!=NULL)
+        if(curr1!=NULL)
         {
-            ListNode* tmp=new ListNode(0);
-            tmp->val=curr1->val;
-            ptr->next=tmp;
-            ptr=ptr->next;
-            curr1=curr1->next;
+            ptr->next=curr1;
         }
-        while(curr2!=NULL)
+        if(curr2!=NULL)
         {
-            ListNode* tmp=new ListNode(0);
-            tmp->val=curr2->val;
-            ptr->next=tmp;
-            ptr=ptr->next;
-            curr2=curr2->next;
+            ptr->next=curr2;
         }
         return head->next;
     }
