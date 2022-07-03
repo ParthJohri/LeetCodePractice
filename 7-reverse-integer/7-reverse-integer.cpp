@@ -2,7 +2,7 @@ class Solution {
 public:
     int reverse(int x) {
         int reverse=0,lastDigit=0,mx=INT_MAX,mn=INT_MIN;
-        // INT_MAX 2147483647
+        // INT_MAX  2147483647
         // INT_MIN -2147483648
         while(x!=0)
         {
