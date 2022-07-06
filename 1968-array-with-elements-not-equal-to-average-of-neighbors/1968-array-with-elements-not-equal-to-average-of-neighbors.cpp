@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        
+        // Time Complexity : O(N+N) = O(N)
+        // Space Complexity : O(1)
         for(int i=1;i<nums.size()-1;i++)
         {
             if(nums[i-1]+nums[i+1]==2*nums[i])
