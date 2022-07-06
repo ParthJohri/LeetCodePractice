@@ -1,8 +1,7 @@
 class Solution {
-private:
-    int dp[31]={0};
 public:
     int fib(int n) {
+        vector<int> dp(n+5,0);
         dp[0]=0;
         dp[1]=1;
         dp[2]=1;
