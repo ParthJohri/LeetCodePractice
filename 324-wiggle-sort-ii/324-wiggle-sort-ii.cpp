@@ -1,6 +1,8 @@
 class Solution {
 public:
     void wiggleSort(vector<int>& nums) {
+        // Time Complexity : O(NlogN)
+        // Space Complexity : O(N)
         vector<int> v(nums);
         sort(v.begin(),v.end());
         int n=v.size(),x=0;
