@@ -1,6 +1,8 @@
 class Solution {
 public:
     int longCommonSub(string &s,string &t,int m,int n, vector<vector<int>> &dp) {
+        // Recursive Solution : No Memo - TLE O(2^N)
+        // Recurive Solution With Memo : O(M*N)
         if(m==0||n==0) return 0;
         if(dp[m][n]!=-1) return dp[m][n];
         if(s[m-1]==t[n-1])
@@ -13,6 +15,7 @@ public:
         int m=s.length(),n=t.length();
         vector<vector<int>> dp(m+1,vector<int> (n+1,-1));        
         // return longCommonSub(s,t,m,n,dp);
+        // Iterative Tabulation : O(M*N) Faster than Recursive solution With Memo because of Function Calls in the Stack
         for(int i=0;i<=m;i++)
             dp[i][0]=0;
         for(int j=0;j<=n;j++)
