@@ -1,6 +1,14 @@
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
+        int n=arr.size();
+        vector<int> v={arr[n/4],arr[n/2],arr[3*n/4]};
+        for(auto i:v) {
+            int l=lower_bound(arr.begin(),arr.end(),i)-arr.begin();
+            int h=upper_bound(arr.begin(),arr.end(),i)-arr.begin();
+            if(h-l>n/4) return i;
+        }
+        return arr[0];
         int c=arr.size()/4,ans=0;
         if(arr.size()==1) return arr[0];
         for(int i=0;i<arr.size()-1;i++) {
