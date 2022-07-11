@@ -3,9 +3,8 @@ public:
     int countStudents(vector<int>& stud, vector<int>& sand) {
         stack<int> s;
         queue<int> q;
-        reverse(sand.begin(),sand.end());
         
-        for(auto i:sand) s.push(i);
+        for(int i=sand.size()-1;i>=0;i--) s.push(sand[i]);
         for(auto i:stud) q.push(i);    
         
         int c=0;
