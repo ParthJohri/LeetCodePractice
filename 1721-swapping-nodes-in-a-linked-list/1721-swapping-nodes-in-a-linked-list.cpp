@@ -24,7 +24,6 @@ public:
             count++;
             curr=curr->next;
         }
-        cout<<first->val<<" "<<c<<endl;
         d=count-k+1;
         curr=head;
         while(curr!=NULL) {
@@ -34,7 +33,6 @@ public:
             }
             curr=curr->next;
         }
-        cout<<second->val<<" "<<d<<endl;
         swap(first->val,second->val);
         return head;
     }
