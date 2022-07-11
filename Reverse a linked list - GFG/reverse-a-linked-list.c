@@ -18,15 +18,16 @@ void display(struct Node *head);
 
 struct Node* reverseList(struct Node *head)
     {
-        struct Node* prev=NULL;
-        struct Node* curr=head;
-        while(curr!=NULL)
-        {
-            struct Node* next=curr->next;
+        if(head==NULL) return NULL;
+        if(head->next==NULL) return head;
+        struct Node* curr=head->next,*prev=head,*temp=head;
+        head->next=NULL;
+        while(curr!=NULL) {
+            temp=curr->next;
             curr->next=prev;
             prev=curr;
-            curr=next;
-        }
+            curr=temp;
+       }
         return prev;
     }
 
