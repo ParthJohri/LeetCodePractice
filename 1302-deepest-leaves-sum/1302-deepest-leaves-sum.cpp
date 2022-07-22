@@ -27,7 +27,6 @@ public:
                 q.pop();
                 if(t->left) q.push(t->left);
                 if(t->right) q.push(t->right);
-                if(leaf(t))
                 sum+=t->val;
             }
         }
