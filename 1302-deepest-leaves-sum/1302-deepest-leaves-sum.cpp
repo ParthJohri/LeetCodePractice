@@ -11,10 +11,6 @@
  */
 class Solution {
 public:
-    bool leaf(TreeNode* r)
-    {
-        return r->left==NULL&&r->right==NULL;
-    }
     int deepestLeavesSum(TreeNode* root) {
         queue<TreeNode*> q;
         int sum=0,sz=0;
