@@ -28,7 +28,6 @@ public:
         if(root==NULL) return ans;
         sum(root,s,"");
         for(auto i:s){
-            cout<<i<<" ";
             ans+=stoi(i);
         }
         return ans;
