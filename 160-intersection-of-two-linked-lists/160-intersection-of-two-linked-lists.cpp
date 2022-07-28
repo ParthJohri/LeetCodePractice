@@ -72,7 +72,7 @@ public:
     //     }
     //     return NULL;
     // }
-    // 4th Solution TC:O(M+N) SC:O(1)
+    // 4th Solution Two Pointers Solution TC:O(M+N) SC:O(1)
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if(headA==NULL || headB==NULL) return NULL;
         ListNode* curr1=headA,*curr2=headB;
