@@ -40,36 +40,52 @@ public:
     //     return NULL;
     // }
     // 3rd Solution TC:O(M+N) SC:O(1)
+    // ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+    //     if(headA==NULL || headB==NULL) return NULL;
+    //     ListNode* curr1=headA,*curr2=headB;
+    //     int lenA=0,lenB=0;
+    //     while(curr1!=NULL){
+    //         lenA++;
+    //         curr1=curr1->next;
+    //     }
+    //     while(curr2!=NULL){
+    //         lenB++;
+    //         curr2=curr2->next;
+    //     }
+    //     int diff=abs(lenA-lenB);
+    //     curr1=headA,curr2=headB;
+    //     if(lenA>lenB){
+    //         while(diff--){
+    //         curr1=curr1->next;
+    //         }
+    //     }
+    //     else{
+    //         while(diff--){
+    //         curr2=curr2->next;
+    //         }
+    //     }
+    //     while(curr1!=NULL && curr2!=NULL){
+    //         if(curr1==curr2)
+    //             return curr1;
+    //         curr1=curr1->next;
+    //         curr2=curr2->next;
+    //     }
+    //     return NULL;
+    // }
+    // 4th Solution TC:O(M+N) SC:O(1)
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if(headA==NULL || headB==NULL) return NULL;
         ListNode* curr1=headA,*curr2=headB;
-        int lenA=0,lenB=0;
-        while(curr1!=NULL){
-            lenA++;
-            curr1=curr1->next;
+        while(curr1!=curr2){
+            if(curr1==NULL)
+                curr1=headB;
+            else
+                curr1=curr1->next;
+            if(curr2==NULL)
+                curr2=headA;
+            else 
+                curr2=curr2->next;
         }
-        while(curr2!=NULL){
-            lenB++;
-            curr2=curr2->next;
-        }
-        int diff=abs(lenA-lenB);
-        curr1=headA,curr2=headB;
-        if(lenA>lenB){
-            while(diff--){
-            curr1=curr1->next;
-            }
-        }
-        else{
-            while(diff--){
-            curr2=curr2->next;
-            }
-        }
-        while(curr1!=NULL && curr2!=NULL){
-            if(curr1==curr2)
-                return curr1;
-            curr1=curr1->next;
-            curr2=curr2->next;
-        }
-        return NULL;
+        return curr1;
     }
 };
