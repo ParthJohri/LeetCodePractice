@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool canMakeArithmeticProgression(vector<int>& arr) {
-        int d,d1;
+        int d;
         int mn=INT_MAX,mx=INT_MIN,n=arr.size(),mn2=INT_MAX;
         unordered_map<int,int> m;
 
