@@ -5,7 +5,6 @@ public:
         string str="";
         vector<string> v;
         unordered_map<char,int> n,fn;
-        int x=0;
         for(auto i:words2){
             for(auto j:i){
                 m[j]++;
@@ -17,8 +16,7 @@ public:
         }
         for(auto i:n){
             if(i.second>0){
-                fn[i.first]=i.second;
-                ++x;}
+                fn[i.first]=i.second;}
         }
         // for(auto i:fn){
         //     cout<<i.first<<" "<<i.second<<endl;
