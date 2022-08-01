@@ -17,7 +17,7 @@ public:
             else if(root->val<p->val && root->val<q->val)
                 root=root->right;
             else
-                return root;
+                break;
         }
         return root;
     }
