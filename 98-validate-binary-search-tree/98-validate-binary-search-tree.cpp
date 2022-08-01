@@ -20,9 +20,6 @@ public:
     bool isValidBST(TreeNode* root) {
         vector<int> v;
         dfs(root,v);
-        for(auto i:v){
-            cout<<i<<" ";
-        }
         for(int i=0;i<v.size()-1;i++){
             if(v[i]>=v[i+1])
                 return false;
