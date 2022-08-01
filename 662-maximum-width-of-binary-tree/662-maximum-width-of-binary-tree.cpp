@@ -14,27 +14,29 @@ public:
     int widthOfBinaryTree(TreeNode* root) {
         if(root==NULL)
             return 0;
-        deque<pair<TreeNode*,int>> q;
-        q.push_back({root,0});
+        queue<pair<TreeNode*,int>> q;
+        q.push({root,0});
         int mx=1;
         while(!q.empty()){
             int sz=q.size();
-            int mmin=q.back().second;
+            int first,last;
+            int mmin=q.front().second;
             for(int i=0;i<sz;i++){
-                pair<TreeNode*,int> t={q.front().first,q.front().second};
+                TreeNode* t=q.front().first;
                 int curr=q.front().second-mmin;
-                q.pop_front();
-                if(t.first->left) {
-                    q.push_back({t.first->left,2*curr+1}); 
+                q.pop();
+                if(i==0)
+                first=curr;
+                if(i==sz-1)
+                last=curr;
+                if(t->left) {
+                    q.push({t->left,2*1ll*curr+1}); 
                 }
-                if(t.first->right) {
-                    q.push_back({t.first->right,2*curr+2}); 
+                if(t->right) {
+                    q.push({t->right,2*1ll*curr+2}); 
                 }
             }
-            // cout<<q.back().second-q.front().second+1<<endl;
-            if(q.empty())
-                break;
-            mx=max(mx,q.back().second-q.front().second+1);
+            mx=max(mx,last-first+1);
         }
         return mx;
     }
