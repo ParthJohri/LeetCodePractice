@@ -14,12 +14,12 @@ public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
         return binarySearchAlgo(0,nums.size()-1,nums);
     }
-    TreeNode* binarySearchAlgo(int l,int h,vector<int> &nums){
-        if(l>h) return NULL;
-        int mid=l+(h-l)/2;
-        TreeNode* temp=new TreeNode(nums[mid]);
-        temp->left=binarySearchAlgo(l,mid-1,nums);
-        temp->right=binarySearchAlgo(mid+1,h,nums);
-        return temp;
+    TreeNode* binarySearchAlgo(int start,int end,vector<int> &nums){
+        if(start>end) return NULL;
+        int mid=start+(end-start)/2;
+        TreeNode* root=new TreeNode(nums[mid]);
+        root->left=binarySearchAlgo(start,mid-1,nums);
+        root->right=binarySearchAlgo(mid+1,end,nums);
+        return root;
     }
 };
