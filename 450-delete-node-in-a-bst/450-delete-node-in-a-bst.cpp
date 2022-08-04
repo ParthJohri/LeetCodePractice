@@ -38,9 +38,10 @@ public:
             else{
                 TreeNode* temp=successor(root);
                 root->val=temp->val;
-                root->right=deleteNode(root->right,temp->val);
+                root->right=deleteNode(root->right,root->val);
             }
         }
         return root;
+            
     }
 };
