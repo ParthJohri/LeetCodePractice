@@ -12,14 +12,14 @@
 class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return binarySearchAlgo(0,nums.size()-1,nums);
+        return sortBST(0,nums.size()-1,nums);
     }
-    TreeNode* binarySearchAlgo(int start,int end,vector<int> &nums){
+    TreeNode* sortBST(int start,int end,vector<int>&nums){
         if(start>end) return NULL;
         int mid=start+(end-start)/2;
         TreeNode* root=new TreeNode(nums[mid]);
-        root->left=binarySearchAlgo(start,mid-1,nums);
-        root->right=binarySearchAlgo(mid+1,end,nums);
+        root->left=sortBST(start,mid-1,nums);
+        root->right=sortBST(mid+1,end,nums);
         return root;
     }
 };
