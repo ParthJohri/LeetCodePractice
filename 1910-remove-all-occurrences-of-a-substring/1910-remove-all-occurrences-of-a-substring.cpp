@@ -5,10 +5,8 @@ public:
             if(s[i]==part[0]){
                 string t=s.substr(i,part.length());
                 if(t==part){
-                    cout<<"t "<<t<<endl;
                     string str=s;
-                    s=str.substr(0,i)+str.substr(i+part.length());
-                    cout<<"s "<<s<<endl;
+                    s=s.substr(0,i)+s.substr(i+part.length());
                     i=-1;
                 }
             }
