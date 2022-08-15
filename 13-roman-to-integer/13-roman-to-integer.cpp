@@ -11,8 +11,7 @@ public:
             {'I',1}
         };
         int ans=0;
-        s+=" ";
-        for(int i=0;i<s.length()-1;i++){
+        for(int i=0;i<s.length();i++){
             if(s[i]=='I'){
                 if(s[i+1]=='V'){
                     ans+=4;++i;}
