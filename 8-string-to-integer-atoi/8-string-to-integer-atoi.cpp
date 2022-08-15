@@ -19,9 +19,6 @@ public:
             ans=ans*10+(s[i]-'0');
             i++;
         }
-        if(ans>INT_MAX){
-            ans=pos?INT_MAX:INT_MAX+1ll;
-        }
         return pos?ans:ans*-1;
     }
 };
