@@ -1,19 +1,14 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        unordered_map<char,pair<int,int>> m;
-        int v=INT_MAX;
-        bool b=false;
-        for(int i=0;i<s.length();i++)
-        {
-            m[s[i]].first=i;
-            m[s[i]].second++;
+        int c[26]={0};
+        for(auto i:s){
+            c[i-97]++;
         }
-        for(auto i:m)
-        {
-            if(i.second.second==1&&i.second.first<=v)
-                {b=true;v=i.second.first;}
+        for(int i=0;i<s.length();i++){
+            if(c[s[i]-97]==1)
+                return i;
         }
-        return b?v:-1;
+        return -1;
     }
 };
