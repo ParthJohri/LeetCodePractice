@@ -1,23 +1,21 @@
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        int ml=arr.size()/2;
-        unordered_map<int,int> m;
-        priority_queue<int>p;
-        for(auto i:arr) m[i]++;
-        for(auto i:m)
-        {
-            p.push(i.second);
+        vector<int> m(100001,0);
+        for(auto i:arr){
+            m[i]++;
         }
-        int count=0,c=0;
-        while(!p.empty())
-        {
-            c+=p.top();
-            count++;
-            if(c>=ml)
-                return count;
-            p.pop();
+        sort(m.begin(),m.end(),greater<int>());
+        int n=arr.size(),x=1,t=n;
+        for(auto i:m){
+            
+            int t=t-i;
+            cout<<t<<endl;
+            if(t<=n/2){
+                return x;
+            }
+            x++;
         }
-        return count;
+        return 0;
     }
 };
