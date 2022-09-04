@@ -11,27 +11,33 @@
 class Solution {
 public:
     ListNode* mergeNodes(ListNode* head) {
-        if(head==NULL) return nullptr;
-        ListNode* curr=head;
-        ListNode* ans=head;
-        int s=0;
-        curr=curr->next;
-        while(curr!=NULL)
-        {
-            if(curr->val!=0)
-            {
-                s+=curr->val;
+        int zero=0,sum=0;
+        if(head==NULL or head->next==NULL) return NULL;
+        ListNode* temp=head,*nhead=new ListNode(0),*temp2;
+        temp2=nhead;
+        bool flag=true;
+        while(temp!=NULL){
+            if(temp->val==0){
+                ++zero;
             }
-            else
-            {
-                if(curr->next==NULL)
-                    ans->next=NULL;
-                ans->val=s;
-                ans=ans->next;
-                s=0;
+            sum+=temp->val;
+            if(zero%2==0){
+                if(flag){
+                    nhead->val=sum;
+                    flag=false;
+                }
+                else{
+                    ListNode* ntemp=new ListNode(sum);
+                    temp2->next=ntemp;
+                    temp2=temp2->next;
+                }
+                sum=0;
+                zero=1;
             }
-            curr=curr->next;
+            temp=temp->next;
         }
-        return head;
+        if(nhead->next==NULL and nhead->val==0)
+            return NULL;
+        return nhead;
     }
 };
