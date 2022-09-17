@@ -25,10 +25,8 @@ public:
             }
         }
         if(k<=0) return sum;
-        for(int j=nums[nums.size()-1]+1;k>0;j++){
-            sum+=j;
-            k--;
-        }
+        int r=nums[nums.size()-1]+k,l=nums[nums.size()-1];
+        sum+=((r*1ll*(r+1))/2)-((l*1ll*(l+1))/2);
         return sum;
     }
 };
