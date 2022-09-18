@@ -2,22 +2,18 @@ class Solution {
 public:
     int longestContinuousSubstring(string s) {
         string check="abcdefghijklmnopqrstuvwxyz";
-        map<char,int> m;
-        int count=1,cc=0,temp=1;
-        for(auto i:check){
-            m[i]=cc++;
-        }
-        s+=" ";
-        for(int i=0;i<s.length()-1;i++){
-            if(m[s[i+1]]-m[s[i]]==1){
-                temp++;
+        int j=0,count=1,cc=1;
+        while(j<s.length()-1){
+            if(s[j+1]-s[j]==1){
+                cc++;
             }
             else{
-                count=max(count,temp);
-                temp=1;
+                count=max(count,cc);
+                cc=1;
             }
+            j++;
         }
-        count=max(count,temp);
+        count=max(count,cc);
         return count;
     }
 };
