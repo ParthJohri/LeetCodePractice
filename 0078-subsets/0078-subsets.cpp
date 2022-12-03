@@ -8,7 +8,6 @@ public:
         createSubset(nums,n-1,ans,v);
         v.push_back(nums[n]);
         createSubset(nums,n-1,ans,v);
-        return;
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> ans;
