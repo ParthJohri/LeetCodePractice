@@ -3,15 +3,15 @@ public:
     int maximumValue(vector<string>& strs) {
         int ans=INT_MIN;
         for(auto i:strs){
-            bool f=false;
+            bool f=true;
             int l=i.length();
             for(auto j:i){
                 if(isalpha(j)){
-                    f=true;
+                    f=false;
                     break;
                 }
             }
-            if(!f) ans=max(ans,stoi(i));
+            if(f) ans=max(ans,stoi(i));
             else ans=max(ans,l);
         }
         return ans;
