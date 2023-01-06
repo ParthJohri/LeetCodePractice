@@ -20,11 +20,18 @@ public:
             carry/=10;
         }
     }
+    // void print(vector<int>&ans){
+    //     for(auto i:ans){
+    //         cout<<i<<" ";
+    //     }
+    //     cout<<endl;
+    // }
     vector<int> factorial(int N){
         // code here
         vector<int> ans(1,1);
         for(int i=1;i<=N;i++){
             multiply(ans,i);
+            // print(ans);
         }
         reverse(ans.begin(),ans.end());
         return ans;
