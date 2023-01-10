@@ -10,9 +10,6 @@ public:
         vector<vector<int>> ans;
         i.push_back({INT_MAX,INT_MAX});
         int n=i.size(),ini,ene;
-        for(auto j:i){
-            cout<<j[0]<<" "<<j[1]<<endl;
-        }
         for(int v=0;v<n-1;v++){
             ini=i[v][0];
             ene=i[v][1];
