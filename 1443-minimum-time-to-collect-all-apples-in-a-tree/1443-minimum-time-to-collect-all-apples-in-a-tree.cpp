@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     int dfs(vector<int> *arr,vector<bool> visit,int curr,vector<bool>&m){
         int fans=0,t=0;
         visit[curr]=true;
