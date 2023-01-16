@@ -5,14 +5,16 @@ public:
         bool f = true;
         if(intervals.size()==0) return {newInterval};
         for(int i=0;i<intervals.size();i++){
-            if(newInterval[1]<intervals[i][0]){
+            if(newInterval[1]<intervals[i][0] and f){
                 ans.push_back(newInterval);
                 ans.push_back(intervals[i]);
+                f=false;
             }
             else if(intervals[i][1]>=newInterval[0] and f){
                 int mn=min(intervals[i][0],newInterval[0]);
                 int mx=max(intervals[i][1],newInterval[1]);
                 ans.push_back({mn,mx});
+                
                 f=false;
             }
             else
