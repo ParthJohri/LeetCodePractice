@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void bfs(vector<int>& dist, int& node, vector<bool> visit, vector<int> *adj){
+    void bfs(vector<int>& dist, int& node, vector<bool>& visit, vector<int> *adj){
         queue<int> q;
         q.push(node);
         dist[node]=0;
@@ -28,10 +28,10 @@ public:
             if(edges[i]==-1) continue;
             adj[i].push_back(edges[i]);
         }
-        vector<bool> visit(n,false);
+        vector<bool> visit(n,false),visit2(n,false);
         vector<int> d1(n,INT_MAX),d2(n,INT_MAX);
         bfs(d1,node1,visit,adj);
-        bfs(d2,node2,visit,adj);
+        bfs(d2,node2,visit2,adj);
         int a1=INT_MAX,a2=-1;
         for(int i=0;i<n;i++){
             if(d1[i]==INT_MAX or d2[i]==INT_MAX) continue;
