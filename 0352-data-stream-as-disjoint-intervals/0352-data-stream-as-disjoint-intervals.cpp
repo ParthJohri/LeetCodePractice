@@ -1,7 +1,7 @@
 class SummaryRanges {
 public:
     
-    unordered_set<int> s;
+    set<int> s;
     
     SummaryRanges() {
         s.clear();
@@ -14,9 +14,7 @@ public:
     vector<vector<int>> getIntervals() {
         vector<vector<int>> ans;
         vector<int> v(s.begin(),s.end());
-        
-        sort(v.begin(),v.end());
-        
+                
         int i=0,n=v.size();
         for(int i=0;i<n;i++){
             int left=v[i];
