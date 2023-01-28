@@ -12,13 +12,15 @@ public:
             if(i%2) target.push_back(i);
             else target2.push_back(i);
         }
-        long long ans=0,ans2=0;
+        long long ans=0;
         for(int i=0;i<nums.size();i++){
-            ans+=abs(target[i]-nums[i])/2;
+            if(target[i]>nums[i])
+            ans+=(target[i]-nums[i])/2;
         }
         for(int i=0;i<nums2.size();i++){
-            ans2+=abs(target2[i]-nums2[i])/2;
+            if(target2[i]>nums2[i])
+            ans+=(target2[i]-nums2[i])/2;
         }
-        return (ans+ans2)/2;
+        return ans;
     }
 };
