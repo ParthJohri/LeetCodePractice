@@ -1,29 +1,34 @@
 class SummaryRanges {
 public:
-    
-    set<int> s;
-    
+    map<int,int> m;
     SummaryRanges() {
-        s.clear();
+        m.clear();
     }
     
     void addNum(int value) {
-        s.insert(value);
+        int left=value,right=value;
+        auto justGreater=m.upper_bound(value);
+        
+        if(m.begin()!=justGreater){
+            auto justLesser=justGreater;
+            justLesser--;  
+            if(justLesser->second>=value) return; // [1,4],[5,10] value 3
+            if(justLesser->second==value-1){
+                left=justLesser->first;
+            }
+        }
+        if(m.end()!=justGreater and justGreater->first==value+1){
+            right=justGreater->second;
+            m.erase(justGreater);
+        }
+        m[left]=right;
     }
     
     vector<vector<int>> getIntervals() {
         vector<vector<int>> ans;
-        vector<int> v(s.begin(),s.end());
-                
-        int i=0,n=v.size();
-        for(int i=0;i<n;i++){
-            int left=v[i];
-            while(i<n-1 and v[i]+1==v[i+1]){
-                i++;
-            }
-            ans.push_back({left,v[i]});
+        for(auto i:m){
+            ans.push_back({i.first,i.second});
         }
-        
         return ans;
     }
 };
