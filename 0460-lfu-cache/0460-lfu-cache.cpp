@@ -1,10 +1,3 @@
-/*
-      MY YOUTUBE VIDEO ON THIS Qn : https://www.youtube.com/watch?v=-Vch0tHAsOM
-      Company Tags                : Microsoft
-      Leetcode Link               : https://leetcode.com/problems/lfu-cache/
-*/
-
-//First , go through LRU Cache to understand why Double Linked List is best suited for this Qn
 class LFUCache {
 private:
     int cap;
@@ -17,7 +10,7 @@ public:
         cap = capacity;
         size = 0;
     }
-    
+    //First , go through LRU Cache to understand why Double Linked List is best suited for this Qn
     void makeMostFrequentlyUsed(int key) {
         auto &vec = *(mp[key]);
         
