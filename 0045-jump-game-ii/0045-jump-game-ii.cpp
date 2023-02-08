@@ -11,8 +11,6 @@ public:
     }
     int jump(vector<int>& nums) {
         vector<int> dp(nums.size(),INT_MAX);
-        int n=nums.size();
-        recur(0,dp,nums);
-        return dp[0]==INT_MAX?0:dp[0];
+        return recur(0,dp,nums);
     }
 };
