@@ -10,6 +10,7 @@ public:
     int longestCommonSubsequence(string text1, string text2) {
         int n=text1.length(),m=text2.length();
         vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-        return ans(text1,text2,n,m,0,0,dp);
+        ans(text1,text2,n,m,0,0,dp);
+        return dp[0][0];
     }
 };
