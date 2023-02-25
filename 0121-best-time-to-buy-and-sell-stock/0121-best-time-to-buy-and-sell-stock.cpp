@@ -1,14 +1,13 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& nums) {
-        int ans=0;
-        vector<int> su(nums.size());
-        su[nums.size()-1]=nums[nums.size()-1];
-        for(int i=nums.size()-2;i>=0;i--){
-            su[i]=max(nums[i],su[i+1]);
+    int maxProfit(vector<int>& prices) {
+        int n=prices.size(),su[n],ans=0;
+        su[n-1]=prices[n-1];
+        for(int i=n-2;i>=0;i--){
+            su[i]=max(su[i+1],prices[i]);
         }
-        for(int i=0;i<nums.size()-1;i++){
-            ans=max(ans,su[i]-nums[i]);
+        for(int i=0;i<n;i++){
+            ans=max(ans,su[i]-prices[i]);
         }
         return ans;
     }
