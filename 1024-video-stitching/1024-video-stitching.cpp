@@ -1,17 +1,17 @@
 class Solution {
 public:
     int videoStitching(vector<vector<int>>& clips, int time) {
-        int dp[time+10];
-        memset(dp,time+1,sizeof dp);
-        dp[0]=0;
-        for(int t=1;t<=time;t++){
+        int min=0,max=0,count=0;
+        while(max<time){
             for(auto i:clips){
-                if(t>=i[0] and t<=i[1]){
-                    dp[t]=min(dp[t],1+dp[i[0]]);
+                if(min>=i[0] and max<=i[1]){
+                    max=i[1];
                 }
             }
-            if(dp[t]>=time+1) return -1;
+            if(min==max) return -1;
+            min=max;
+            count++;
         }
-        return dp[time];
+        return count;
     }
 };
