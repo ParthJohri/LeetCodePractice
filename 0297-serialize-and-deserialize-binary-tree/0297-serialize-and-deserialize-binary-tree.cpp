@@ -10,7 +10,7 @@
 class Codec {
 public:
     int recur(string& data){
-        int pos=data.find(',');
+        int pos=data.find(' ');
         int val=stoi(data.substr(0,pos));
         data=data.substr(pos+1);
         return val;
@@ -18,7 +18,7 @@ public:
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         if(root==NULL) return "#";
-        return to_string(root->val)+","+serialize(root->left)+","+serialize(root->right);
+        return to_string(root->val)+" "+serialize(root->left)+" "+serialize(root->right);
     }
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
@@ -29,12 +29,10 @@ public:
             if(data.size()>1) data=data.substr(2);
             return NULL;
         }
-        else{
-            TreeNode* ans=new TreeNode(recur(data));
-            ans->left=deserialize_helper(data);
-            ans->right=deserialize_helper(data);
-            return ans; 
-        }  
+        TreeNode* ans=new TreeNode(recur(data));
+        ans->left=deserialize_helper(data);
+        ans->right=deserialize_helper(data);
+        return ans; 
     }
 };
 
