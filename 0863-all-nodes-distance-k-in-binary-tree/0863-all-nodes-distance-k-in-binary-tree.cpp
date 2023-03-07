@@ -33,11 +33,6 @@ public:
                 }
             } 
         }
-        for(int i=0;i<=242;i++){
-            for(auto j:adj[i]){
-                cout<<i<<"->"<<j<<endl;
-            }
-        }
         int visit[100005]={0};
         queue<int> p;
         int dist=0;
