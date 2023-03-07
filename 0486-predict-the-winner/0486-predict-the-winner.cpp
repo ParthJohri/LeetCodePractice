@@ -13,8 +13,25 @@ public:
             return p2choicea and p2choiceb;
         }
     }
+    int minmax(int start,int end,vector<vector<int>>&dp,bool p1turn,vector<int>&nums){
+        if(start>end) return -1;
+        if(start==end) return nums[start];
+        if(dp[start][end]!=-1) return dp[start][end];
+        if(p1turn) {
+            int p1choicea=nums[start]+minmax(start+1,end,dp,false,nums);
+            int p1choiceb=nums[end]+minmax(start,end-1,dp,false,nums);
+            return dp[start][end]=max(p1choicea,p1choiceb);
+        }
+        else {
+            int p2choicea=-nums[start]+minmax(start+1,end,dp,true,nums);
+            int p2choiceb=-nums[end]+minmax(start,end-1,dp,true,nums);
+            return dp[start][end]=min(p2choicea,p2choiceb);
+        }
+    }
     bool PredictTheWinner(vector<int>& nums) {
         if(nums.size()==1) return true;
-        return recur(0,nums.size()-1,0,0,true,nums);
+        vector<vector<int>> dp(25,vector<int>(25,-1));
+        // return recur(0,nums.size()-1,0,0,true,nums);
+        return minmax(0,nums.size()-1,dp,true,nums)>=0;
     }
 };
