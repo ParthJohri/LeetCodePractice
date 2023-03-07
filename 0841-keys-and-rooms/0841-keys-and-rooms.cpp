@@ -19,7 +19,8 @@ public:
         memset(visit,false,sizeof visit);
         dfs(0,adj,visit);
         for(int i=0;i<rooms.size();i++){
-            if(visit[i]==false) {cout<<i<<endl;return false;}
+            if(visit[i]==false) 
+            return false;
         }
         return true;  
     }
