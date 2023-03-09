@@ -11,8 +11,16 @@
  */
 class Solution {
 public:
+    void dfs(TreeNode* rootleft,TreeNode* rootright, int level){
+        if(!rootleft or !rootright) return;
+        if(level%2==0) swap(rootleft->val,rootright->val);
+        dfs(rootleft->left,rootright->right,level+1);
+        dfs(rootleft->right,rootright->left,level+1);
+    }
     TreeNode* reverseOddLevels(TreeNode* root) {
         if(root==NULL) return NULL;
+        dfs(root->left,root->right,0);
+        return root;
         queue<TreeNode*> q;
         q.push(root);
         int count=0;
