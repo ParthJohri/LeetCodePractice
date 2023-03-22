@@ -5,8 +5,8 @@ public:
         visit[s]=true;
         for(auto i:adj[s]){
             val=min(val,i.second);
-            if(!visit[i.first])
-                dfs(i.first,e,adj,val);
+            if(!visit[i.first]){
+                dfs(i.first,e,adj,val);}
         }
     }
     int minScore(int n, vector<vector<int>>& roads) {
