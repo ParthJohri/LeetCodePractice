@@ -1,13 +1,11 @@
 class Solution {
 public:
     void dfs(vector<string>&ans, map<char,string>&m, string& digits,int num,string& s){
-        if(num==digits.length()) {
+        if(num==digits.length()){
             ans.push_back(s);
-            return;
         }
-        string str=m[digits[num]];
-        for(auto ch:str){
-            s+=ch;
+        for(auto i:m[digits[num]]){
+            s.push_back(i);
             dfs(ans,m,digits,num+1,s);
             s.pop_back();
         }
