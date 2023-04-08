@@ -37,7 +37,7 @@ public:
         if(node==NULL) return NULL;
         Node* ans=new Node(node->val);
         map<Node*,Node*> clone;
-        clone[node]=ans;
+        // clone[node]=ans;
         ans=dfs(node,clone);
         return ans;
     }
