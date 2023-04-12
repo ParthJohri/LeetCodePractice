@@ -1,6 +1,7 @@
 class Solution {
 public:
     int nextGreaterElement(int n) {
+        // https://www.geeksforgeeks.org/find-next-greater-number-set-digits/
         string str=to_string(n);
         int position=-1,smallestright;
         for(int i=str.length()-2;i>=0;i--){
