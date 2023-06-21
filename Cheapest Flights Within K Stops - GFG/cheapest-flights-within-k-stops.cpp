@@ -23,7 +23,7 @@ class Solution {
             int node=p.front().second.first;
             int dis=p.front().second.second;
             p.pop();
-            if(stops>K)
+            if(stops>K) break;
             for(auto adjnode:grid[node]){
                 int nod=adjnode[0];
                 int weight=adjnode[1];
