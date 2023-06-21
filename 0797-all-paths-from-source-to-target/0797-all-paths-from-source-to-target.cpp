@@ -1,12 +1,15 @@
 class Solution {
 public:
-    void dfs(int node,vector<int>*adj,vector<bool>&visit,int target,vector<vector<int>>&ans,vector<int>temp){
-        temp.push_back(node);
+    void dfs(int node,vector<int>*adj,int target,vector<vector<int>>&ans,vector<int>&temp){
         if(node==target){
+            temp.push_back(node);
             ans.push_back(temp);
+            temp.pop_back();
         }
         for(auto i:adj[node]){
-            dfs(i,adj,visit,target,ans,temp);
+            temp.push_back(node);
+            dfs(i,adj,target,ans,temp);
+            temp.pop_back();
         }
     }
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
@@ -18,8 +21,10 @@ public:
                 adj[i].push_back(j);
             }
         }
-        vector<bool> visit(n);
-        dfs(0,adj,visit,n-1,ans,vector<int>());
+        // A directed acyclic graph can never contain a self-loop.
+        // No need of visit vector<bool> visit(n);
+        vector<int>temp;
+        dfs(0,adj,n-1,ans,temp);
         return ans;
     }
 };
