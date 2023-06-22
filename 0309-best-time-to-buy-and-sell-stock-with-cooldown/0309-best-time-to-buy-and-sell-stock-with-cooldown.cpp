@@ -1,20 +1,26 @@
 class Solution {
 public:
-    int recur(int n,vector<int>&prices,vector<vector<int>>&dp,int s){
-        if(n>=prices.size()) return 0;
-        if(dp[n][s]!=-1) return dp[n][s];
-        int ans=0;
-        if(s==0){
-            ans=max(recur(n+1,prices,dp,s),-prices[n]+recur(n+1,prices,dp,s+1));
+    int profit(vector<int>&prices,int index,bool flag,vector<vector<int>>&dp){
+        if(index>=prices.size()) return 0;
+        if(dp[index][flag]!=-1) return dp[index][flag];
+        int totalprofit=0;
+        if(flag)//to buy the stock
+        {
+            int buy=profit(prices,index+1,false,dp)-prices[index];
+            int notbuy=profit(prices,index+1,true,dp);
+            totalprofit=max({totalprofit,buy,notbuy});
         }
-        else if(s==1){
-            ans=max(recur(n+1,prices,dp,s),+prices[n]+recur(n+2,prices,dp,s-1));
+        else// to sell the stock
+        {
+            int sell=prices[index]+profit(prices,index+2,true,dp);// 1 extra day for cool down
+            int notsell=profit(prices,index+1,false,dp);
+            totalprofit=max({totalprofit,sell,notsell});
         }
-        return dp[n][s]=ans;
+        return dp[index][flag]=totalprofit;
     }
     int maxProfit(vector<int>& prices) {
-        int n=prices.size(),s=0;
+        int n=prices.size();
         vector<vector<int>> dp(n+1,vector<int>(2,-1));
-        return recur(0,prices,dp,s);
+        return profit(prices,0,true,dp);
     }
 };
