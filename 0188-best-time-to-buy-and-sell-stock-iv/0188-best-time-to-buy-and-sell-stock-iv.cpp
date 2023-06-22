@@ -1,33 +1,24 @@
 class Solution {
 public:
-    int recur(int n, vector<int>& prices,vector<vector<vector<int>>>&dp,int s,int count,int k){
-        if(n>=prices.size()) return 0;
-        if(dp[n][s][count]!=-1) return dp[n][s][count];
+    int profit(vector<int>&prices,int index,bool flag,int k,vector<vector<vector<int>>>&dp){
+        if(index>=prices.size() or k==0) return 0;
+        if(dp[index][flag][k]!=-1) return dp[index][flag][k];
         int ans=0;
-        if(s==0) {
-            if(count==k){
-                ans=recur(n+1,prices,dp,s,count,k);
-            }
-            else{
-                ans=max(recur(n+1,prices,dp,s,count,k),-prices[n]+recur(n+1,prices,dp,s+1,count,k));
-            }
+        if(flag){
+            int buy=profit(prices,index+1,false,k,dp)-prices[index];
+            int notbuy=profit(prices,index+1,true,k,dp);
+            ans=max({ans,buy,notbuy});
         }
-        else if(s==1) {
-            if(count==k){
-                ans=recur(n+1,prices,dp,s,count,k);
-            }
-            else{
-                ans=max(recur(n+1,prices,dp,s,count,k),+prices[n]+recur(n+1,prices,dp,s-1,count+1,k));
-            }
+        else{
+            int sell=prices[index]+profit(prices,index+1,true,k-1,dp);
+            int notsell=profit(prices,index+1,false,k,dp);
+            ans=max({ans,sell,notsell});
         }
-        return dp[n][s][count]=ans;
+        return dp[index][flag][k]=ans;
     }
     int maxProfit(int k, vector<int>& prices) {
-        int n=prices.size(),s=0,count=0;
-        if(n==1) return 0;
+        int n=prices.size();
         vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(2,vector<int>(k+1,-1)));
-        // dp[i][1] - stock in hand
-        // dp[i][0] -  stock not in hand
-        return recur(0,prices,dp,s,count,k);
+        return profit(prices,0,true,k,dp);
     }
 };
