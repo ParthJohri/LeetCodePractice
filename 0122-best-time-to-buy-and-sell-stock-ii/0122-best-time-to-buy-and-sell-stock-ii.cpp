@@ -1,19 +1,25 @@
 class Solution {
 public:
-    int recur(int n, vector<int>& prices,vector<vector<int>>&dp,int s){
-        if(n>=prices.size()) return 0;
-        if(dp[n][s]!=-1) return dp[n][s];
-        int ans=0;
-        if(s==0) ans=max(recur(n+1,prices,dp,s),-prices[n]+recur(n+1,prices,dp,s+1));
-        else if(s==1) ans=max(recur(n+1,prices,dp,s),+prices[n]+recur(n+1,prices,dp,s-1));
-        return dp[n][s]=ans;
+    int recur(vector<int>&prices,int index,int flag,vector<vector<int>>&dp){
+        if(index>=prices.size()) return 0;
+        if(dp[index][flag]!=-1) return dp[index][flag];
+        int profit=0;
+        if(flag){
+            int buy=recur(prices,index+1,false,dp)-prices[index];
+            // recur gives the value at which the stock is sold
+            int notbuy=recur(prices,index+1,true,dp);
+            profit=max({profit,buy,notbuy});
+        }
+        else{
+            int sell=prices[index]+recur(prices,index+1,true,dp);
+            int notsell=recur(prices,index+1,false,dp);
+            profit=max({profit,sell,notsell});
+        }
+        return dp[index][flag]=profit;
     }
     int maxProfit(vector<int>& prices) {
-        int n=prices.size(),s=0;
-        if(n==1) return 0;
+        int n=prices.size();
         vector<vector<int>> dp(n+1,vector<int>(2,-1));
-        // dp[i][1] - stock in hand
-        // dp[i][0] -  stock not in hand
-        return recur(0,prices,dp,s);
+        return recur(prices,0,true,dp);
     }
 };
