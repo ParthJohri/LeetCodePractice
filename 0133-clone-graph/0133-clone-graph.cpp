@@ -18,27 +18,26 @@ public:
     }
 };
 */
+
 class Solution {
 public:
-    Node* dfs(Node* node,map<Node*,Node*>&clone){
-        Node* newClone=new Node(node->val);
-        clone[node]=newClone;
-        vector<Node*> temp; 
-        for(auto i:node->neighbors){
-            Node* tmp;
-            if(clone.count(i)) tmp=clone[i];
-            else tmp=dfs(i,clone);
-            temp.push_back(tmp);
+    map<Node*,Node*> m;
+    Node* recur(Node* n){
+        Node* newnode=new Node(n->val);
+        vector<Node*> newneighbours;
+        m[n]=newnode;
+        for(auto i:n->neighbors){
+            Node* temp;
+            if(m.count(i)) temp=m[i];
+            else temp=recur(i);
+            newneighbours.push_back(temp);
         }
-        newClone->neighbors=temp;
-        return newClone;
+        newnode->neighbors=newneighbours;
+        return newnode;
     }
     Node* cloneGraph(Node* node) {
         if(node==NULL) return NULL;
-        Node* ans=new Node(node->val);
-        map<Node*,Node*> clone;
-        // clone[node]=ans;
-        ans=dfs(node,clone);
+        Node* ans=recur(node);
         return ans;
     }
 };
