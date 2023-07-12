@@ -1,8 +1,8 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        int right=0,left=0,ans=0,n=s.length();
         map<char,int> m;
-        int right=0,left=0,n=s.length(),ans=0;
         while(right<n){
             m[s[right]]++;
             if(m[s[right]]>1){
@@ -13,7 +13,7 @@ public:
                 m[s[left]]--;
                 left++;
             }
-            ans=max(ans,right-left+1);
+            ans=max(ans,right-left+1);   
             right++;
         }
         return ans;
