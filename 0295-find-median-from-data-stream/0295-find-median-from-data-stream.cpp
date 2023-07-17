@@ -3,13 +3,16 @@ public:
     priority_queue<int> maxHeap;
     priority_queue<int,vector<int>,greater<int>> minHeap;
     MedianFinder() {
-        
+        // 1 2 3 4 5 6 7 8 
+        // maxHeap stores left half elements in descending order 
+        // minHeap stores right half elements in ascending order
     }
     
     void addNum(int num) {
         maxHeap.push(num);
         minHeap.push(maxHeap.top());
         maxHeap.pop();
+        // maxHeap size or minHeap both could get +1 extra size it is our choice
         if(minHeap.size()>maxHeap.size()){
             maxHeap.push(minHeap.top());
             minHeap.pop();
