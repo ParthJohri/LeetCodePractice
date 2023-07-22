@@ -1,40 +1,25 @@
 class Solution {
 public:
-    bool isValid(string st) {
-        stack<char> s;
-        bool b=true;
-        if(st.length()&1)
-            b=false;
-        for(auto i:st)
-        {
-            if(i=='('||i=='{'||i=='[')
-                s.push(i);
-            else if(!s.empty())
-            {
-                switch(i)
-                    {
-                    case '}':if(s.top()=='{')
-                                s.pop();
-                              else
-                              return false;
-                                break;
-                    case ')': if(s.top()=='(')
-                                s.pop();
-                              else
-                              return false;
-                                break;
-                    case ']': if(s.top()=='[')
-                                s.pop();
-                              else
-                                 return false;
-                                break;
-                }
+    bool isValid(string s) {
+        stack<char> st;
+        map<char,char> m={
+            {'(',')'},
+            {'[',']'},
+            {'{','}'}
+        };
+        map<char,char> p={
+            {')','('},
+            {']','['},
+            {'}','{'}
+        };
+        for(auto i:s){
+            if(m.count(i)){
+                st.push(i);
+            }else {
+                if(st.empty() or st.top()!=p[i]) return false;
+                st.pop();
             }
-            else
-                b=false;
         }
-        if(s.size()>0)
-            b=false;
-        return b;
+        return st.empty();
     }
 };
