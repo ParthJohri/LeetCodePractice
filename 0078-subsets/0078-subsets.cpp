@@ -5,8 +5,9 @@ public:
             ans.push_back(v);
             return;
         }
-        createSubset(nums,n-1,ans,v);
         v.push_back(nums[n]);
+        createSubset(nums,n-1,ans,v);
+        v.pop_back();
         createSubset(nums,n-1,ans,v);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
