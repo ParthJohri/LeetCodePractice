@@ -1,16 +1,15 @@
 class Solution {
 public:
-    long long int recur(int curr, vector<int>& dp, vector<int>&nums){
-        if(curr>=nums.size()-1) return 0;
-        if(dp[curr]!=INT_MAX) return dp[curr];
-        for(int i=1;i<=nums[curr];i++){
-            if(dp[curr]>1+recur(i+curr,dp,nums))
-            dp[curr]=1+recur(i+curr,dp,nums);
-        }
-        return dp[curr];
-    }
     int jump(vector<int>& nums) {
-        vector<int> dp(nums.size(),INT_MAX);
-        return recur(0,dp,nums);
+        int n=nums.size();
+        vector<long long int> dp(n+1,INT_MAX);
+        dp[0]=0;
+        for(int i=0;i<n;i++){
+            int forward=min(nums[i]+i,n-1);
+            for(int j=i;j<=forward;j++){
+                dp[j]=min(dp[j],dp[i]+1);
+            }
+        }
+        return dp[n-1];
     }
 };
