@@ -1,36 +1,26 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
     public:
-    void swap(int a[],int start, int end)
-    {
-        int temp;
-        temp=a[start];
-        a[start]=a[end];
-        a[end]=temp;
-    }
     void sort012(int a[], int n)
     {
-        int low=0,mid=0,high=n-1;
-        while(mid<=high)
-        {
-            if(a[mid]==0)
-            {
-                swap(a,low,mid);
+        // code here 
+        int low=0,high=n-1,temp=0;
+        while(temp<=high){
+            if(a[temp]==1) temp++;
+            else if(a[temp]==0){
+                swap(a[temp],a[low]);
                 low++;
-                mid++;
+                temp++;
             }
-            else if(a[mid]==1)
-            mid++;
-            else 
-            {
-                swap(a,mid,high);
+            else if(a[temp]==2){
+                swap(a[temp],a[high]);
                 high--;
             }
         }
@@ -38,7 +28,7 @@ class Solution
     
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 int main() {
 
     int t;
@@ -66,4 +56,5 @@ int main() {
     return 0;
 }
 
-  // } Driver Code Ends
+
+// } Driver Code Ends
