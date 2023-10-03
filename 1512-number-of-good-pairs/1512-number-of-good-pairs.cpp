@@ -1,14 +1,12 @@
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
-        // Do this problem after this
-        // https://www.codechef.com/START38C/problems/GOODPAIRS
-        vector<int> v(101,0);
+        map<int,int> m;
         int ans=0;
-        for(auto i:nums)
-        {
-            ans+=v[i]++;
+        for(auto i:nums) m[i]++;
+        for(auto i:m){
+            ans+=(i.second*(i.second-1)/2);
         }
-         return ans;
+        return ans;
     }
 };
