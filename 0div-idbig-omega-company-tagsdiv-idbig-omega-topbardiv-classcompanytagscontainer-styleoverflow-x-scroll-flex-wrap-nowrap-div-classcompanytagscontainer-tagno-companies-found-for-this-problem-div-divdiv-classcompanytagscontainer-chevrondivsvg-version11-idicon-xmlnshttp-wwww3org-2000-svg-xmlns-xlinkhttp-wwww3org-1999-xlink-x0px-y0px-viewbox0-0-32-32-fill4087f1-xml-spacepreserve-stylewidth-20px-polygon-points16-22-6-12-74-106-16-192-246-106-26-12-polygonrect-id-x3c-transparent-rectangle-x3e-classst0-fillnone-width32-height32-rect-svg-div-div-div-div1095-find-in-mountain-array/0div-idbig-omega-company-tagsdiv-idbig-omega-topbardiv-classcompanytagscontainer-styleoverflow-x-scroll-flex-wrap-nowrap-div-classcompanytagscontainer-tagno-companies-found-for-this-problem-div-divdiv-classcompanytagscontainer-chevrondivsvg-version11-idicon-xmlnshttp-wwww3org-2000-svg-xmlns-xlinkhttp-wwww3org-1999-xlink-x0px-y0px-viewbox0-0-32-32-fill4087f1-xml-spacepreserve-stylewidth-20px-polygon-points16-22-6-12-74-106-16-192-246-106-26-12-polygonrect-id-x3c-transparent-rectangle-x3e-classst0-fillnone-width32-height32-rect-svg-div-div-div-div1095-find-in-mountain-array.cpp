@@ -54,7 +54,6 @@ public:
         while(start<=end){
             int mid=start+(end-start)/2;
             int ele=mountainArr.get(mid);
-            cout<<mid<<endl;
                 if(mid!=0 and mid!=n-1 and mountainArr.get(mid+1)<ele and ele>=mountainArr.get(mid-1)){
                     int x=ascending(target,mountainArr,mid);
                     int y=descending(target,mountainArr,mid);
