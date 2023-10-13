@@ -1,25 +1,24 @@
 class Solution {
 public:
-    int recur(vector<int>&prices,int index,int flag,vector<vector<int>>&dp){
-        if(index>=prices.size()) return 0;
-        if(dp[index][flag]!=-1) return dp[index][flag];
-        int profit=0;
-        if(flag){
-            int buy=recur(prices,index+1,false,dp)-prices[index];
-            // recur gives the value at which the stock is sold
-            int notbuy=recur(prices,index+1,true,dp);
-            profit=max({profit,buy,notbuy});
+    int dp[100000][2];
+    int recur(int i,vector<int>&p,bool choice){
+        if(i>=p.size()) return 0;
+        if(dp[i][choice]!=-1) return dp[i][choice];
+        int pick=INT_MIN,notpick=INT_MIN;
+        if(choice==false){
+            int x=-p[i]+recur(i+1,p,true);
+            int y=recur(i+1,p,false);
+            pick=max(x,y);
         }
         else{
-            int sell=prices[index]+recur(prices,index+1,true,dp);
-            int notsell=recur(prices,index+1,false,dp);
-            profit=max({profit,sell,notsell});
+            int z=p[i]+recur(i+1,p,false);
+            int w=recur(i+1,p,true);
+            notpick=max(z,w);
         }
-        return dp[index][flag]=profit;
+        return dp[i][choice]=max(pick,notpick);
     }
     int maxProfit(vector<int>& prices) {
-        int n=prices.size();
-        vector<vector<int>> dp(n+1,vector<int>(2,-1));
-        return recur(prices,0,true,dp);
+        memset(dp,-1,sizeof(dp));
+        return recur(0,prices,0);
     }
 };
