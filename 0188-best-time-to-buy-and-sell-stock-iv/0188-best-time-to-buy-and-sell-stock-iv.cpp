@@ -1,24 +1,24 @@
 class Solution {
 public:
-    int profit(vector<int>&prices,int index,bool flag,int k,vector<vector<vector<int>>>&dp){
-        if(index>=prices.size() or k==0) return 0;
-        if(dp[index][flag][k]!=-1) return dp[index][flag][k];
-        int ans=0;
-        if(flag){
-            int buy=profit(prices,index+1,false,k,dp)-prices[index];
-            int notbuy=profit(prices,index+1,true,k,dp);
-            ans=max({ans,buy,notbuy});
+    int dp[1001][2][101];
+    int recur(int i,vector<int>&p,int choice,int t){
+        if(i>=p.size() or t==0) return 0;
+        if(dp[i][choice][t]!=-1) return dp[i][choice][t];
+        int buy=INT_MIN,sell=INT_MIN;
+        if(choice==false){
+            int x=-p[i]+recur(i+1,p,true,t);
+            int y=recur(i+1,p,false,t);
+            buy=max(x,y);
         }
         else{
-            int sell=prices[index]+profit(prices,index+1,true,k-1,dp);
-            int notsell=profit(prices,index+1,false,k,dp);
-            ans=max({ans,sell,notsell});
+            int z=p[i]+recur(i+1,p,false,t-1);
+            int w=recur(i+1,p,true,t);
+            sell=max(z,w);
         }
-        return dp[index][flag][k]=ans;
+        return dp[i][choice][t]=max(buy,sell);
     }
     int maxProfit(int k, vector<int>& prices) {
-        int n=prices.size();
-        vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(2,vector<int>(k+1,-1)));
-        return profit(prices,0,true,k,dp);
+        memset(dp,-1,sizeof(dp));
+        return recur(0,prices,0,k);
     }
 };
