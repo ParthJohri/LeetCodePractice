@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<int,map<int,int>> dp;
+    unordered_map<int,unordered_map<int,int>> dp;
     int mod=1e9+7;
     int recur(int k,int t, int i){
         if(k<0  or (abs(i)+k)<abs(t)) return 0;
