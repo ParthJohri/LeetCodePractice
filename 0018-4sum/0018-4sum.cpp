@@ -4,7 +4,6 @@ public:
         vector<vector<int>> ans;
         if(index>=nums.size()) return ans;
         if(k==2){
-            cout<<"IN"<<endl;
             int i=index,j=nums.size()-1;
             while(i<j){
                 if(target*1ll-nums[i]*1ll==nums[j]*1ll){
@@ -19,7 +18,6 @@ public:
             }
         }
         else{
-            cout<<"OUT"<<endl;
             int x=nums.size()-k+1;
             for(int i=index;i<x;i++){
                 vector<vector<int>> temp=Ksum(nums,target*1ll-nums[i]*1ll,k-1,i+1);
