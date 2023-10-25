@@ -1,16 +1,21 @@
 class Solution {
 public:
-    map<int,int> m;
-    bool isHappy(int n) {
-        if(n==1) return true;
-        if(m[n]!=0) return false;
+    int sum(int n){
         int sum=0;
-        m[n]++;
-        while(n!=0){
-            int d=n%10;
-            sum+=d*d;
+        while(n){
+            sum+=(n%10)*(n%10);
             n/=10;
         }
-        return isHappy(sum);
+        return sum;
+    }
+    bool isHappy(int n) {
+        int slow=n,fast=sum(n);
+        while(slow!=fast){
+            slow=sum(slow);
+            fast=sum(sum(fast));
+        }
+        cout<<slow<<endl;
+        cout<<fast<<endl;
+        return slow==1;
     }
 };
