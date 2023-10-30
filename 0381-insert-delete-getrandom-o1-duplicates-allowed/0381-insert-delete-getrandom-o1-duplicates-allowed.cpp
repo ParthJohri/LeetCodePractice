@@ -22,7 +22,7 @@ public:
             m[lastElement].insert(deletingPos);
             m[lastElement].erase(pos.size()-1);
             pos.pop_back();
-            if(it->second.size()==0) m.erase(it);
+            if(m[val].size()==0) m.erase(val);
             return true;
         }
         return false;
