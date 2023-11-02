@@ -26,7 +26,6 @@ public:
     }
     bool btreeGameWinningMove(TreeNode* root, int n, int x) {
         recur(root,x);
-        cout<<lc<<" "<<rc<<endl;
         if(lc+rc+1<=n/2 or lc>n/2 or rc>n/2) return true;
         return false;
     }
