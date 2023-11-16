@@ -19,7 +19,7 @@ public:
         int temp=0;
         if(prev!=NULL and prev->val==root->val)
             temp=1+max(l,r);
-        
+
         int ans = max(temp,1+l+r);
         res = max(res,ans);
         
