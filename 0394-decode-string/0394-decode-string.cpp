@@ -18,9 +18,6 @@ public:
             }
         }
         for(auto i:s){
-            cout<<i<<" ";
-        }
-        for(auto i:s){
             if(st.empty() or i!="]"){
                 st.push(i);
             }
