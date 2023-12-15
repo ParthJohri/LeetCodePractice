@@ -10,15 +10,10 @@ public:
     }
     string destCity(vector<vector<string>>& paths) {
         string ans="";
-        set<string> s;
         for(auto i:paths){
             m[i[0]].push_back(i[1]);
-            s.insert(i[0]);
-            s.insert(i[1]);
         }
-        for(auto i:s){
-            ans=dfs(i);
-        }
+        ans = dfs(paths[0][0]);
         return ans;
     }
 };
