@@ -1,21 +1,24 @@
 class Solution {
 public:
+    map<string,vector<string>> m;
+    string dfs(string city){
+        string ans = city;
+        for(auto j:m[city]){
+           ans = dfs(j);
+        }
+        return ans;
+    }
     string destCity(vector<vector<string>>& paths) {
-        unordered_map<string,pair<int,int>> m;
-        for(auto i:paths)
-        {
-            for(int j=0;j<2;j++)
-            {
-                m[i[j]].first++;
-                if(j==1)
-                    m[i[j]].second++;
-            }
+        string ans="";
+        set<string> s;
+        for(auto i:paths){
+            m[i[0]].push_back(i[1]);
+            s.insert(i[0]);
+            s.insert(i[1]);
         }
-        for(auto i:m)
-        {
-            if(i.second.first==1&&i.second.second==1)
-                return i.first;
+        for(auto i:s){
+            ans=dfs(i);
         }
-        return "";
+        return ans;
     }
 };
