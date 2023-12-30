@@ -13,7 +13,6 @@ public:
             if(ud>ld)
                 ans+=ud-ld;
             id++;
-            cout<<id<<" "<<ld<<" "<<ud<<endl;
         }
         return ans;
     }
