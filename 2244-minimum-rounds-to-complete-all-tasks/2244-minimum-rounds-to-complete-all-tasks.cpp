@@ -1,21 +1,16 @@
 class Solution {
 public:
     int minimumRounds(vector<int>& tasks) {
-        unordered_map<int,int> m;
-        int count=0;
-        for(auto i:tasks)
-            m[i]++;
-        for(auto i:m)
-        {
-            if(i.second<2)
-                return -1;
-            else if(i.second==2)
-                count++;
-            else if(i.second==3)
-                 count++;
-            else if(i.second>3)
-                count+=ceil((double)i.second/3);
+        int ans=0;
+        map<int,int> m;
+        for(auto i:tasks) m[i]++;
+        for(auto &[key,val]:m){
+            if(val==1) return -1;
+            ans+=val/3;
+            val%=3;
+            if(val==1) ans++;
+            if(val%2==0) ans+=val/2;
         }
-        return count;
+        return ans;
     }
 };
