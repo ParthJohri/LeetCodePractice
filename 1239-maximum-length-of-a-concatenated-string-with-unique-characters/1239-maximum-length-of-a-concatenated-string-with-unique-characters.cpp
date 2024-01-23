@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // map<int,map<string,int>> m;
+    map<int,map<string,int>> m;
     bool func(string& s){
         int m[26]={0};
         for(auto i:s){
@@ -16,12 +16,12 @@ public:
             }
             return 0;
         }
-        if(!func(s)) return 0;
-        // if(m[index].count(s)) return m[index][s];
+        if(!func(s)) return m[index][s]=0;
+        if(m[index].count(s)) return m[index][s];
         int a=0,b=0;
         a=recur(arr,index+1,s+arr[index]);
         b=recur(arr,index+1,s);
-        return max(a,b);
+        return m[index][s]=max(a,b);
     }
     int maxLength(vector<string>& arr) {
         int ans=0;
