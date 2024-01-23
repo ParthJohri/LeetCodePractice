@@ -17,7 +17,7 @@ public:
             return 0;
         }
         if(!func(s)) return m[index][s]=0;
-        if(m[index].count(s)) return m[index][s];
+        // if(m[index].count(s)) return m[index][s];
         int a=0,b=0;
         a=recur(arr,index+1,s+arr[index]);
         b=recur(arr,index+1,s);
