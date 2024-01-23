@@ -1,11 +1,11 @@
 class Solution {
 public:
-    unordered_map<int,unordered_map<string,int>> m;
+    map<int,map<string,int>> m;
     bool func(string& s){
-        map<char,int> m;
+        int m[26]={0};
         for(auto i:s){
-            if(m.count(i)) return false;
-            m[i]++;
+            if(m[i-'a']>=1) return false;
+            m[i-'a']++;
         }
         return true;
     }
