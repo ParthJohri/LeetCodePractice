@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<int,map<string,int>> m;
+    unordered_map<int,unordered_map<string,int>> m;
     bool func(string& s){
         map<char,int> m;
         for(auto i:s){
