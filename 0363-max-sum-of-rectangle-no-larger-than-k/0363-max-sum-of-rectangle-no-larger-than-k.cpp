@@ -27,17 +27,17 @@ public:
                     ans=max(ans,val);
             }
         }
-        for(int i=0;i<row;i++){
-            vector<int>prefix(col,0);
-            for(int j=i;j<row;j++){
-                for(int temp=0;temp<col;temp++){
-                    prefix[temp]+=matrix[j][temp];
-                }
-                int val=maxSum(prefix,k);
-                if(val<=k)
-                    ans=max(ans,val);
-            }
-        }
+        // for(int i=0;i<row;i++){
+        //     vector<int>prefix(col,0);
+        //     for(int j=i;j<row;j++){
+        //         for(int temp=0;temp<col;temp++){
+        //             prefix[temp]+=matrix[j][temp];
+        //         }
+        //         int val=maxSum(prefix,k);
+        //         if(val<=k)
+        //             ans=max(ans,val);
+        //     }
+        // }
         return ans;
     }
 };
