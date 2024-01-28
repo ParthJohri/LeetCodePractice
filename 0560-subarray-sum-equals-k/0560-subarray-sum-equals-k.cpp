@@ -2,16 +2,14 @@ class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
         map<int,int> m;
-        int count = 0, sum = 0;
+        int pr=0,ans=0;
+        m[0]=1;
+        // Sliding Window does not work because of negative numbers
         for(auto i:nums){
-            sum+=i;
-            if(sum==k){
-                count++;
-            }
-            if(m.find(sum-k)!=m.end())
-                count+=m[sum-k];
-            m[sum]++;
+            pr+=i;
+            ans+=m[pr-k];
+            m[pr]++;
         }
-        return count;
+        return ans;
     }
 };
