@@ -21,20 +21,15 @@ public:
         ListNode* prev=NULL;
         while(start<end){
             if(prev!=NULL){
-                cout<<prev->val<<"->"<<v[start].second->val<<"\n";
                 prev->next=v[start].second;
             }
-            v[start].second->next=v[end].second;
-            prev=v[end].second;
-            cout<<"start "<<start<<" end "<<end<<endl;
-            start++;
-            end--;
+            v[start++].second->next=v[end].second;
+            prev=v[end--].second;
             if(start>=end){
                 prev->next=NULL;
             }
         }
-        if(v.size()%2){
-            if(prev!=NULL)
+        if(v.size()%2 and prev!=NULL){
             prev->next=v[start].second;
             v[start].second->next=NULL;
         }
