@@ -6,7 +6,6 @@ public:
         while(j<n){
             if(nums[j]==mx) ++count;
             while(count>=k and i<=j){
-                cout<<i+1<<" "<<j+1<<endl;
                 if(nums[i++]==mx) --count;
                 ans+=(n-j);
             }
