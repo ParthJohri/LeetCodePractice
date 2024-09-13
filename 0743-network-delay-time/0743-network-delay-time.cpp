@@ -15,8 +15,6 @@ public:
             pair<int,int> pr=p.top();
             p.pop();
             int u=pr.second;
-            if(vis[u]) continue;
-            vis[u]=true;
             for(auto i=adj[u].begin();i!=adj[u].end();i++){
                 int v=(*i).first;
                 int weight=(*i).second;
